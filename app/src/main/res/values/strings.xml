@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CHI_Homework_2_3</string>
+    <string name="button_text">Who is Active?</string>
+    <string name="green">I am GREEN</string>
+    <string name="blue">I am BLUE</string>
+    <string name="yellow">I am YELLOW</string>
+    <string name="red">I am RED</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomColoredRadioButtons">
+        <attr name="ActiveButton_text" format="string"/>
+        <attr name="BlueRadio_on" format="boolean"/>
+        <attr name="RedRadio_on" format="boolean"/>
+        <attr name="GreenRadio_on" format="boolean"/>
+        <attr name="YellowRadio_on" format="boolean"/>
+    </declare-styleable>
+</resources>
