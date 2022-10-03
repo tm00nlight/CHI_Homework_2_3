@@ -11,10 +11,11 @@ class CustomColoredRadioButtons @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : FrameLayout(context, attrs) {
     private val activeButton: TextView by lazy { findViewById<TextView>(R.id.activeButton) }
-    val blueRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionBlue) }
-    val redRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionRed) }
-    val greenRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionGreen) }
-    val yellowRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionYellow) }
+    private val blueRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionBlue) }
+    private val redRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionRed) }
+    private val greenRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionGreen) }
+    private val yellowRadio: RadioButton by lazy { findViewById<RadioButton>(R.id.optionYellow) }
+    lateinit var callbackToast: CheckingButton
 
     init {
         View.inflate(context, R.layout.custom_colored_radio_buttons, this)
@@ -37,6 +38,7 @@ class CustomColoredRadioButtons @JvmOverloads constructor(
         activeButton.setOnClickListener {
             deactivateAll()
             setActiveTextDefault()
+            callbackToast.makeToastAboutButton("DEFAULT")
         }
 
         blueRadio.setOnCheckedChangeListener { _, isChecked ->
@@ -44,6 +46,7 @@ class CustomColoredRadioButtons @JvmOverloads constructor(
                 deactivateAll()
                 blueRadio.isChecked = true
                 activeButton.text = "BLUE"
+                callbackToast.makeToastAboutButton("BLUE")
             }
         }
 
@@ -52,6 +55,7 @@ class CustomColoredRadioButtons @JvmOverloads constructor(
                 deactivateAll()
                 redRadio.isChecked = true
                 activeButton.text = "RED"
+                callbackToast.makeToastAboutButton("RED")
             }
         }
 
@@ -60,6 +64,7 @@ class CustomColoredRadioButtons @JvmOverloads constructor(
                 deactivateAll()
                 greenRadio.isChecked = true
                 activeButton.text = "GREEN"
+                callbackToast.makeToastAboutButton("GREEN")
             }
         }
 
@@ -68,8 +73,13 @@ class CustomColoredRadioButtons @JvmOverloads constructor(
                 deactivateAll()
                 yellowRadio.isChecked = true
                 activeButton.text = "YELLOW"
+                callbackToast.makeToastAboutButton("YELLOW")
             }
         }
+    }
+
+    fun setCallback(callback: CheckingButton) {
+        callbackToast = callback
     }
 
     private fun deactivateAll() {
@@ -81,4 +91,5 @@ class CustomColoredRadioButtons @JvmOverloads constructor(
     }
 
     private fun setActiveTextDefault() {activeButton.text = context.getString(R.string.button_text)}
+
 }

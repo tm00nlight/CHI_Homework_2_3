@@ -7,9 +7,9 @@
     tools:context=".ConstraintWithRadioButtonActivity">
 
     <com.tm00nlight.chi_homework_2_3.CustomColoredRadioButtons
+        android:id="@+id/customView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/customView"
-        app:ActiveButton_text="@string/button_text"/>
+        app:ActiveButton_text="@string/button_text" />
 
 </LinearLayout>
